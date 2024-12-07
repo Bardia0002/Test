@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telegram Mini App</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to top, #2b2b2b, #ffe28a);
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      width: 45%;
+    }
+
+    .circle {
+      width: 100px;
+      height: 100px;
+      background-color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      font-size: 14px;
+      color: black;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .circle:hover {
+      transform: scale(1.1);
+    }
+
+    .circle:nth-child(1) { background-color: red; color: white; }
+    .circle:nth-child(2) { background-color: blue; color: white; }
+    .circle:nth-child(3) { background-color: green; color: white; }
+    .circle:nth-child(4) { background-color: yellow; color: black; }
+    .circle:nth-child(5) { background-color: orange; color: white; }
+    .circle:nth-child(6) { background-color: purple; color: white; }
+
+    #messageBox {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    #messageBox p {
+      margin: 0 0 20px;
+      font-size: 16px;
+    }
+
+    #backButton {
+      display: none;
+      position: absolute;
+      bottom: 20px;
+      padding: 10px 20px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #backButton:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Left Column -->
+    <div class="column">
+      <div class="circle" onclick="showMessage('bazi sexi')">bazi sexi</div>
+      <div class="circle" onclick="showMessage('live')">live</div>
+      <div class="circle" onclick="showMessage('chat')">chat</div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="column">
+      <div class="circle" onclick="showMessage('tasviri')">tasviri</div>
+      <div class="circle" onclick="showMessage('فیلم')">فیلم</div>
+      <div class="circle" onclick="showMessage('گیف ساز')">گیف ساز</div>
+    </div>
+  </div>
+
+  <!-- Message Box -->
+  <div id="messageBox">
+    <p id="message"></p>
+    <p>برای انجام این کار برنامه مربوطه را از لینک زیر دانلود کنید:</p>
+    <p><a href="#">دانلود برنامه</a></p>
+  </div>
+
+  <!-- Back Button -->
+  <button id="backButton" onclick="hideMessage()">بازگشت</button>
+
+  <script>
+    function showMessage(name) {
+      // نمایش پیام
+      document.getElementById('messageBox').style.display = 'block';
+      document.getElementById('backButton').style.display = 'block';
+      document.getElementById('message').textContent = `شما گزینه ${name} را انتخاب کردید.`;
+    }
+
+    function hideMessage() {
+      // مخفی کردن پیام
+      document.getElementById('messageBox').style.display = 'none';
+      document.getElementById('backButton').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
